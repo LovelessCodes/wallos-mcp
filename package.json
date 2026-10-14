@@ -1,0 +1,60 @@
+{
+  "name": "wallos-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Wallos, the self-hosted subscription tracker. Ask your AI assistant what you pay for, what is due, and how your budget is holding up.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "wallos",
+    "subscriptions",
+    "subscription-tracker",
+    "self-hosted",
+    "personal-finance",
+    "budgeting"
+  ],
+  "license": "MIT",
+  "author": "LovelessCodes <hello@loveless.codes>",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "wallos-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LovelessCodes/wallos-mcp.git"
+  },
+  "homepage": "https://github.com/LovelessCodes/wallos-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/LovelessCodes/wallos-mcp/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "tsx scripts/e2e.ts",
+    "prepublishOnly": "npm run clean && npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.4"
+  }
+}
